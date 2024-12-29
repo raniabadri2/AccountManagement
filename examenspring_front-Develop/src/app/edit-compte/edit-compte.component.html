@@ -1,0 +1,33 @@
+<!-- edit-compte.component.html -->
+<div class="container mt-4">
+  <h2><i class="fas fa-edit"></i> Edit Compte</h2>
+  <form (ngSubmit)="onSubmit()" #compteForm="ngForm">
+    <div class="mb-3">
+      <label for="clientCin" class="form-label">
+        <i class="fas fa-fingerprint"></i> RIB Client:
+      </label>
+      <div class="input-group">
+        <span class="input-icon">
+          <i class="fas fa-fingerprint"></i>
+        </span>
+        <input type="text" id="clientCin" name="clientCin" [(ngModel)]="compte.rib" class="form-control" required>
+      </div>
+    </div>
+ 
+    <div class="mb-3">
+      <label for="solde" class="form-label">
+        <i class="fas fa-coins"></i> Solde:
+      </label>
+      <div class="input-group">
+        <span class="input-icon">
+          <i class="fas fa-coins"></i>
+        </span>
+        <input type="number" id="solde" name="solde" [(ngModel)]="compte.solde" class="form-control" required>
+      </div>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary" [disabled]="compteForm.invalid">
+      <i class="fas fa-save"></i> Update Compte
+    </button>
+  </form>
+ </div>

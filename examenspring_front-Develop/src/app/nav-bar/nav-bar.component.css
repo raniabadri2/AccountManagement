@@ -1,0 +1,27 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar {
+  background: #343a40;
+  color: white;
+}
+
+.mat-nav-list {
+  padding-top: 8px;
+}
+
+.mat-list-item {
+  cursor: pointer;
+  padding: 8px 16px;
+  color: #495057;
+}
+
+.mat-list-item:hover {
+  background-color: #6c757d;
+  color: white;
+}

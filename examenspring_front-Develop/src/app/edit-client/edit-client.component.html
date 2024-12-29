@@ -1,0 +1,45 @@
+<!-- edit-client.component.html -->
+<div class="container mt-4">
+  <h2><i class="fas fa-user-edit"></i> Edit Client</h2>
+  <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+    <div class="mb-3">
+      <label for="cin" class="form-label">
+        <i class="fas fa-id-card"></i> CIN:
+      </label>
+      <div class="input-group">
+        <span class="input-icon">
+          <i class="fas fa-id-card"></i>
+        </span>
+        <input type="text" id="cin" name="cin" [(ngModel)]="client.cin" class="form-control" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="nom" class="form-label">
+        <i class="fas fa-user"></i> Nom:
+      </label>
+      <div class="input-group">
+        <span class="input-icon">
+          <i class="fas fa-user"></i>
+        </span>
+        <input type="text" id="nom" name="nom" [(ngModel)]="client.nom" class="form-control" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="prenom" class="form-label">
+        <i class="fas fa-user"></i> Prénom:
+      </label>
+      <div class="input-group">
+        <span class="input-icon">
+          <i class="fas fa-user"></i>
+        </span>
+        <input type="text" id="prenom" name="prenom" [(ngModel)]="client.prenom" class="form-control" required>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">
+      <i class="fas fa-save"></i> Update Client
+    </button>
+  </form>
+</div>

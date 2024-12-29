@@ -1,0 +1,37 @@
+<!-- showclient.component.html -->
+<div class="container mt-4">
+  <h2>Clients</h2>
+
+  <div class="d-flex justify-content-end mb-2">
+    <button class="btn btn-primary" [routerLink]="'/ajoutclient'">Ajouter un client</button>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>CIN</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let client of clients.slice(currentPage * pageSize, (currentPage + 1) * pageSize)">
+      <td>{{ client.cin }}</td>
+      <td>{{ client.nom }}</td>
+      <td>{{ client.prenom }}</td>
+      <td>
+        <button class="btn btn-success" (click)="getIdClient(client.cin)" [routerLink]="['/editclient', client.cin]">Modifier</button>
+        <button class="btn btn-danger" (click)="deleteClient(client)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <mat-paginator
+    [length]="clients.length"
+    [pageSize]="pageSize"
+    [pageIndex]="currentPage"
+    (page)="pageChanged($event)"
+  ></mat-paginator>
+</div>

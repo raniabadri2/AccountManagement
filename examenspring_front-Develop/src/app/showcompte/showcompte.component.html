@@ -1,0 +1,42 @@
+<!-- showcompte.component.html -->
+<div class="container mt-4">
+  <h2>Comptes</h2>
+
+  <div class="d-flex justify-content-end mb-2">
+    <button class="btn btn-primary" [routerLink]="'/ajoutcompte'">Ajouter un compte</button>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>RIB</th>
+      <th>Solde</th>
+      <th>CIN</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let compte of comptes.slice(currentPage * pageSize, (currentPage + 1) * pageSize)">
+      <td>{{ compte.rib }}</td>
+      <td>{{ compte.solde }}</td>
+      <td>{{ compte.client.cin  }}</td>
+      <td>{{ compte.client.nom  }}</td>
+      <td>{{ compte.client.prenom  }}</td>
+
+      <td>
+        <button class="btn btn-success" (click)="getIdCompte(compte.rib)" [routerLink]="['/editcompte', compte.rib]">Modifier</button>
+        <button class="btn btn-danger" (click)="deleteCompte(compte)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <mat-paginator
+    [length]="comptes.length"
+    [pageSize]="pageSize"
+    [pageIndex]="currentPage"
+    (page)="pageChanged($event)"
+  ></mat-paginator>
+</div>
